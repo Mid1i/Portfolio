@@ -1,0 +1,228 @@
+.home {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px auto;
+    max-width: 1080px;
+    padding: 0px 40px;
+    height: 100vh;
+    width: 100%;
+
+    &__main {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 150px;
+    }
+
+    &__stack {
+        align-items: center;
+        display: flex;
+
+        &-text {
+            border-right: 2px solid rgba(45, 46, 50, 0.5);
+            color: var(--text-secondary);
+            font-size: 17px;
+            font-weight: 600;
+            padding-right: 20px;
+            margin-right: 70px;
+        }
+
+        &-container {
+            display: flex;
+            flex: 1 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-left: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        &-row {
+            margin-right: 30px;
+            cursor: pointer;
+
+            & svg {
+                margin-right: 10px;
+                transition: all 0.2s linear;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+
+    &-left {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        width: 100%;
+
+        &__title {
+            color: var(--text-secondary);
+            font-size: 55px;
+            font-weight: 700;
+            line-height: 120%;
+            margin-bottom: 20px;
+            position: relative;
+
+            &-icon {
+                position: absolute;
+                right: 30px;
+                top: 70px;
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+        &__text {
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        &__icons {
+            display: flex;
+
+            &-telegram,
+            &-kwork {
+                cursor: pointer;
+                margin-right: 20px;
+            }
+
+            &-github {
+                cursor: pointer;
+
+                & path {
+                    fill: var(--text-secondary);
+                }
+            }
+        }
+    }
+
+    &-right {
+        animation: morph 8s ease-in-out infinite;
+        border: 3px solid var(--text-secondary);
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        overflow: hidden;
+        height: 400px;
+        width: 400px;
+
+        &__image {
+            pointer-events: none;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+
+
+@media(hover: hover) {
+    .home-left__icons-kwork:hover rect,
+    .home-left__icons-telegram:hover rect,
+    .home-left__icons-github:hover path {
+        fill: var(--accent-color);
+    }
+
+    .home__stack-row:hover svg {
+        transform: translateY(-10px);
+    }
+}
+
+@media(max-width: 1024px) {
+    .home {
+        padding: 10px 0px;
+        height: auto;
+
+        &__main {
+            flex-direction: column-reverse;
+        }
+
+        &__stack {
+            flex-direction: column;
+
+            &-text {
+                border-bottom: 2px solid rgba(45, 46, 50, 0.5);
+                border-right: none;
+                padding-bottom: 10px;
+                padding-right: 0px;
+                margin-bottom: 30px;
+                margin-right: 0px;
+            }
+
+            &-row {
+                margin-bottom: 30px;
+            }
+        }
+
+        &-left__title {
+            text-align: center;
+
+            &-icon {
+                right: -10px;
+            }
+        }
+
+        &-left__text {
+            text-align: center;
+        }
+
+        &-left__icons {
+            justify-content: center;
+        }
+
+        &-right {
+            margin-bottom: 50px;
+            height: 350px;
+            width: 350px;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .home {
+        padding: 110px 30px;
+
+        &__main {
+            margin-bottom: 50px;
+        }
+
+        &-left {
+            max-width: 385px;
+    
+            &__title {
+                font-size: 36px;
+    
+                &-icon {
+                    top: 40px;
+                    right: -20px;
+                    height: 45px;
+                    width: 45px;
+                }
+            }
+        }
+
+        &-right {
+            height: 280px;
+            width: 280px;
+        }
+
+        &__stack-container {
+            max-width: 385px;
+        }
+    }
+}
